@@ -17,7 +17,6 @@ export class WorkExperienceService {
       $idWorkExperience: Int!
       $company: String!
       $location: String!
-      $description: String!
       $endDate: String!
       $startDate: String!
       $position: String!
@@ -27,14 +26,12 @@ export class WorkExperienceService {
         idWorkExperience: $idWorkExperience
         company: $company
         location: $location
-        description: $description
         endDate: $endDate
         startDate: $startDate
         position: $position
         achievements: $achievements
       ) {
         company
-        description
         endDate
         position
         location
@@ -49,7 +46,6 @@ export class WorkExperienceService {
   {
     positions(search: "*") {
       company
-      description
       endDate
       position
       location
@@ -77,9 +73,8 @@ export class WorkExperienceService {
     idWorkExperience: number,
     company: string,
     location: string,
-    description: string,
-    endDate: string,
-    startDate: string,
+    endDate: String,
+    startDate: String,
     position: string,
     achievements: string[]
   ): Observable<any> {
@@ -90,7 +85,6 @@ export class WorkExperienceService {
           idWorkExperience,
           company,
           location,
-          description,
           endDate,
           startDate,
           position,

@@ -4,24 +4,80 @@
   color: #f4f2ff;
   padding: 20px;
   margin: auto;
-  margin-top: 5.5%;
+  margin-top: 7.5%;
   width: 500px;
 }
 
-.body{
-  display: flex;
-  gap: 50px;
+.card_delete {
+  padding: 0px;
+  margin: auto;
+  margin-top: 7.5%;
+  width: 540px;
+  height: 695px;
 }
 
-.dates{
+.card_list {
+  background: #4a1d95;
+  padding: 15px;
+  border-radius: 10px;
+  color: #f4f2ff;
+}
+
+.card_header {
+  justify-content: space-between;
+  display: flex;
+  padding: 0px;
+  margin: 0;
+}
+
+.card_header h3 {
+  margin: 0;
+}
+
+.card_body {
+  margin: 0;
+  padding: 0px;
+}
+
+.card_body h3 {
+  margin: 15px 0px 0px 0px;
+}
+
+.achievements_list {
+    margin: 10px 0 0;
+    padding-left: 20px;
+}
+  
+.achievements_list li {
+  list-style-type: disc;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.card_company {
   display: flex;
   justify-content: space-between;
 }
 
-.dates div{
-    display: flex;
-    flex-direction: column;
-    width: 48%;
+.company {
+  text-align: end;
+  justify-content: end;
+}
+
+.body {
+  display: flex;
+  gap: 50px;
+}
+
+.dates {
+  justify-content: space-between;
+  display: flex;
+}
+
+.dates div {
+  display: flex;
+  flex-direction: column;
+  width: 48%;
 }
 
 h1 {
@@ -56,6 +112,7 @@ input:focus {
 
 button {
   background-color: #7a3aed;
+  width: 100%;
   border-radius: 20px;
   margin-top: 15px;
   font-size: 18px;

@@ -43,7 +43,6 @@ export class SessionService implements OnDestroy {
 
   isLoggedIn(): boolean {
     const token = this.getToken();
-    console.log('Function isLogged in Token:', token);
     return token !== null;
   }
 

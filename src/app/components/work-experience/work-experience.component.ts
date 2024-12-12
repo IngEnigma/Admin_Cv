@@ -2,7 +2,6 @@ import { WorkExperienceService } from '../../services/work-experience.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Component } from '@angular/core';
-import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-work-experience',
@@ -15,7 +14,6 @@ export class WorkExperienceComponent {
   idWorkExperience: number | undefined;
   company: string = '';
   location: string = '';
-  description: string = '';
   startDate: string = '';
   endDate: string = '';
   position: string = '';
@@ -30,10 +28,9 @@ export class WorkExperienceComponent {
 
   isFormValid(): boolean {
     if (
-      (this.idWorkExperience || 
+      (this.idWorkExperience ||
         this.company ||
         this.location ||
-        this.description ||
         this.endDate ||
         this.startDate ||
         this.position) != ''
@@ -54,7 +51,6 @@ export class WorkExperienceComponent {
         this.idWorkExperience!,
         this.company,
         this.location,
-        this.description,
         this.endDate,
         this.startDate,
         this.position,
@@ -63,7 +59,6 @@ export class WorkExperienceComponent {
       .subscribe({
         next: (response) => {
           console.log('Work experience created:', response);
-          this.workExperiences = response;
           workForm.resetForm();
           this.queryWorkExperiences();
         },
@@ -76,7 +71,8 @@ export class WorkExperienceComponent {
   queryWorkExperiences() {
     this.workExperienceService.getWorkExperiences().subscribe({
       next: (response) => {
-        console.log('Work experiences:', response);
+        this.workExperiences = response;
+        console.log(this.workExperiences);
       },
       error: (error) => {
         console.error('Error fetching work experiences:', error);
@@ -84,17 +80,16 @@ export class WorkExperienceComponent {
     });
   }
 
-  deleteWorkExperience(idWorkExperience: number) {
-    this.workExperienceService
-      .deleteWorkExperience(idWorkExperience)
-      .subscribe({
-        next: (response) => {
-          console.log('Work experience deleted:', response);
-          this.queryWorkExperiences();
-        },
-        error: (error) => {
-          console.error('Error deleting work experience:', error);
-        },
-      });
+  deleteWorkExperience(idWorkExperience: string) {
+    const parseId = parseInt(idWorkExperience, 10);
+    this.workExperienceService.deleteWorkExperience(parseId).subscribe({
+      next: (response) => {
+        console.log('Work experience deleted:', response);
+        this.queryWorkExperiences();
+      },
+      error: (error) => {
+        console.error('Error deleting work experience:', error);
+      },
+    });
   }
 }

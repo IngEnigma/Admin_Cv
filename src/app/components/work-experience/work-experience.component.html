@@ -29,14 +29,6 @@
         required
       />
 
-      <label for="description">Description</label>
-      <textarea
-        id="description"
-        name="description"
-        [(ngModel)]="description"
-        required
-      ></textarea>
-
       <div class="dates">
         <div>
           <label for="startDate">Start Date</label>
@@ -81,12 +73,20 @@
       <button type="submit" [disabled]="!isFormValid()">Submit</button>
     </form>
   </section>
-  <section class="card">
-    <div *ngFor="let workExperience of workExperiences">
-      <h3>{{ workExperience.position }} at {{ workExperience.company }}</h3>
-      <p>{{ workExperience.description }}</p>
-      <p>{{ workExperience.startDate }} - {{ workExperience.endDate }}</p>
-      <button (click)="deleteWorkExperience(workExperience.idWorkExperience)">
+  <section class="card_delete">
+    <div class="card_list" *ngFor="let workExperience of workExperiences">
+      <div class="card_header">
+            <h3>{{ workExperience.id }} - {{ workExperience.position }}</h3>
+            <h3>{{ workExperience.startDate | date:'yyy/dd/MM' }} - {{ workExperience.endDate | date:'yyy/dd/MM' }}</h3>
+      </div>
+      <div class="card_body">
+        <div class="card_company">
+            <h3>{{ workExperience.location }}</h3>
+            <h3>{{ workExperience.company }}</h3>
+        </div>
+        <h3>{{ workExperience.achievements }}</h3>
+      </div>
+      <button (click)="deleteWorkExperience(workExperience.id)">
         Delete
       </button>
     </div>
