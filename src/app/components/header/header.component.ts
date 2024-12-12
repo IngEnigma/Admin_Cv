@@ -18,6 +18,7 @@ export class HeaderComponent {
   title: string = '';
   phone: string = '';
   email: string = '';
+  name: string = '';
   url: string = '';
 
   constructor(private headerService: HeaderService) {}
@@ -30,6 +31,7 @@ export class HeaderComponent {
         this.address ||
         this.email ||
         this.socialmedia ||
+        this.name ||
         this.url) != ''
     ) {
       return true;
@@ -43,6 +45,7 @@ export class HeaderComponent {
       this.headerService
         .createOrUpdateHeader(
           this.title,
+          this.name,
           this.description,
           this.phone,
           this.address,

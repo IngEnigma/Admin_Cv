@@ -13,10 +13,11 @@ export class HeaderService {
   constructor(private apollo: Apollo, private sessionService: SessionService) { }
 
   private CREATE_OR_UPDATE_HEADER_MUTATION = gql`
-  mutation CreateOrUpdateHeader($title: String!, $description: String!, $phone: String!, $address:String!, $email:String!, $socialmedia:String!, $url:String!) {
-    createOrUpdateHeader(title: $title, description: $description, phone:$phone, address:$address, email:$email, socialmedia:$socialmedia, url:$url) {
+  mutation CreateOrUpdateHeader($title: String!, $name: String!, $description: String!, $phone: String!, $address:String!, $email:String!, $socialmedia:String!, $url:String!) {
+    createOrUpdateHeader(title: $title, name: $name, description: $description, phone:$phone, address:$address, email:$email, socialmedia:$socialmedia, url:$url) {
       idHeader
       title
+      name
       url
       description
       phone
@@ -32,6 +33,7 @@ export class HeaderService {
 
   createOrUpdateHeader(
     title: string,
+    name: string,
     description: string,
     phone: string,
     address: string,
@@ -43,6 +45,7 @@ export class HeaderService {
       mutation: this.CREATE_OR_UPDATE_HEADER_MUTATION,
       variables: {
         title,
+        name,
         description,
         phone,
         address,
