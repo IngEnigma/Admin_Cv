@@ -1,0 +1,60 @@
+.card {
+  background: #4a1d95;
+  border-radius: 10px;
+  color: white;
+  padding: 20px;
+  margin: auto;
+  margin-top: 12%;
+  width: 500px;
+}
+
+h1 {
+  color: #f4f2ff;
+  text-align: center;
+  font-size: 32px;
+  padding: 0;
+  margin: 0px 0px 20px 0px;
+}
+
+form {
+  flex-direction: column;
+  display: flex;
+}
+
+label {
+  margin: 10px 0px 5px 0px;
+  color: #f4f2ff;
+}
+
+input {
+  border: 1px solid #f4f2ff;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 10px;
+}
+
+input:focus {
+  outline:#2d1065 solid 2px;
+}
+
+button {
+  background-color: #7a3aed;
+  border-radius: 20px;
+  margin-top: 15px;
+  font-size: 18px;
+  cursor: pointer;
+  color: white;
+  padding: 10px;
+  border: none;
+}
+
+button:hover {
+  background-color: #6b28d9;
+}
+
+button:disabled {
+  background-color: #2d1065;
+  cursor: default;
+  color: #6b28d9;
+}
